@@ -31,11 +31,17 @@ function displayWeather(weather) {
   let humidityField = document.querySelector("#humidity");
   let windspeedField = document.querySelector("#windspeed");
   let currentTimeField = document.querySelector("#current-time");
+  let currentIcon = document.querySelector("#current-icon");
   currentTempField.innerHTML = Math.round(weather.data.main.temp);
   locationField.innerHTML = `${weather.data.name},&nbsp;${weather.data.sys.country}`;
   conditionsField.innerHTML = weather.data.weather[0].description;
   humidityField.innerHTML = weather.data.main.humidity;
   windspeedField.innerHTML = Math.round(weather.data.wind.speed);
   currentTimeField.innerHTML = formatDate(weather.data.dt * 1000);
+  currentIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${weather.data.weather[0].icon}@2x.png`
+  );
+  currentIcon.setAttribute("alt", weather.data.weather[0].description);
 }
 axios.get(baseUrl).then(displayWeather);
