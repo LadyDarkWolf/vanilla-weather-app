@@ -13,16 +13,17 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="styles/styles.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="container">
       <div class="weather-app-wrapper">
         <div class="weather-app">
           <div class="overview">
-            <h1>Sydney, AU</h1>
+            <h1 id="location"></h1>
             <ul>
               <li>Sunday 18:20</li>
-              <li>Clear</li>
+              <li id="conditions"></li>
             </ul>
           </div>
           <div class="row">
@@ -34,7 +35,7 @@
                   class="float-left"
                 />
                 <div class="float-left current-temp">
-                  <strong>8</strong
+                  <strong id="current-temperature"></strong
                   ><span class="units"
                     >°C | <a href="#" class="change-temp-f">°F</a> | K</span
                   >
@@ -44,9 +45,8 @@
 
             <div class="col-6">
               <ul>
-                <li>Precipitatiion: 2%</li>
-                <li>Humidity: 80%</li>
-                <li>Wind: NNW 3km/h</li>
+                <li>Humidity: <span id="humidity"></span>%</li>
+                <li>Wind: NNW <span id="windspeed"></span> km/h</li>
               </ul>
             </div>
           </div>
