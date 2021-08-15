@@ -1,7 +1,5 @@
 let apiKey = "2af1ff2de81cdd8d67552da7d4b4331d";
 
-let baseUrl = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}&q=Sydney,AU&units=metric`;
-
 function formatDate(timestamp) {
   let days = [
     "Sunday",
@@ -44,4 +42,17 @@ function displayWeather(weather) {
   );
   currentIcon.setAttribute("alt", weather.data.weather[0].description);
 }
-axios.get(baseUrl).then(displayWeather);
+
+function search(city) {
+  let url = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}&q=${city}&units=metric`;
+  axios.get(url).then(displayWeather);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+search("New York");
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
