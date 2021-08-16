@@ -55,6 +55,15 @@ li::first-letter {
   font-size: 16 px;
   top: -20px;
 }
-.change-temp-f {
+.change-units {
+  text-decoration: none;
+}
+
+.weather-temperature .active {
+  color: #202124;
+  cursor: default;
+  font-size: larger;
+}
+.weather-temperature .active:hover {
   text-decoration: none;
 }

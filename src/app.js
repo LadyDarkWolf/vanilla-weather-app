@@ -30,7 +30,9 @@ function displayWeather(weather) {
   let windspeedField = document.querySelector("#windspeed");
   let currentTimeField = document.querySelector("#current-time");
   let currentIcon = document.querySelector("#current-icon");
-  currentTempField.innerHTML = Math.round(weather.data.main.temp);
+
+  celciusTemperature = weather.data.main.temp;
+  currentTempField.innerHTML = Math.round(celciusTemperature);
   locationField.innerHTML = `${weather.data.name},&nbsp;${weather.data.sys.country}`;
   conditionsField.innerHTML = weather.data.weather[0].description;
   humidityField.innerHTML = weather.data.main.humidity;
@@ -53,6 +55,42 @@ function handleSubmit(event) {
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
+function displayFarenheit(event) {
+  event.preventDefault();
+  let currentTempField = document.querySelector("#current-temperature");
+  let farenheitTemperature = (celciusTemperature * 9) / 5 + 32;
+  currentTempField.innerHTML = Math.round(farenheitTemperature);
+  kelvinSelect.classList.remove("active");
+  celciusSelect.classList.remove("active");
+  farenheitSelect.classList.add("active");
+}
+
+function displayKelvin(event) {
+  event.preventDefault();
+  let currentTempField = document.querySelector("#current-temperature");
+  let kelvinTemperature = celciusTemperature + 273.15;
+  currentTempField.innerHTML = Math.round(kelvinTemperature);
+  kelvinSelect.classList.add("active");
+  celciusSelect.classList.remove("active");
+  farenheitSelect.classList.remove("active");
+}
+
+function displayCelcius(event) {
+  event.preventDefault();
+  let currentTempField = document.querySelector("#current-temperature");
+  currentTempField.innerHTML = Math.round(celciusTemperature);
+  kelvinSelect.classList.remove("active");
+  celciusSelect.classList.add("active");
+  farenheitSelect.classList.remove("active");
+}
+let celciusTemperature = null;
 search("New York");
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let farenheitSelect = document.querySelector("#change-units-f");
+farenheitSelect.addEventListener("click", displayFarenheit);
+let kelvinSelect = document.querySelector("#change-units-k");
+kelvinSelect.addEventListener("click", displayKelvin);
+let celciusSelect = document.querySelector("#change-units-c");
+celciusSelect.addEventListener("click", displayCelcius);
