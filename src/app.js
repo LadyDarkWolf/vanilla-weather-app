@@ -22,6 +22,36 @@ function formatDate(timestamp) {
   let day = date.getDay();
   return `${days[day]} ${hours}:${minutes}`;
 }
+function displayForecast() {
+  let days = ["Thu", "Fri", "Sat"];
+  let forecast = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+                  <div class="weather-forecast-date" id="forecast-date">
+                    ${day}
+                  </div>
+                  <img
+                    src="http://openweathermap.org/img/wn/01n@2x.png"
+                    alt="sunny"
+                    id="forecast-icon"
+                    width="30px"
+                  />
+                  <div class="weather-forecast-temperatures">
+                    <span class="weather-forecast-temperature-maximum">
+                      25°
+                    </span>
+                    <span class="weather-forecast-temperature-minimum">
+                      10°
+                    </span>
+                  </div>
+                </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecast.innerHTML = forecastHTML;
+}
 function displayWeather(weather) {
   let currentTempField = document.querySelector("#current-temperature");
   let locationField = document.querySelector("#location");
@@ -43,6 +73,7 @@ function displayWeather(weather) {
     `http://openweathermap.org/img/wn/${weather.data.weather[0].icon}@2x.png`
   );
   currentIcon.setAttribute("alt", weather.data.weather[0].description);
+  displayForecast();
 }
 
 function search(city) {
