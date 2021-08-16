@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>XVanilla Weather App</title>
+    <title>Vanilla Weather App</title>
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -55,11 +55,17 @@
                   ><span class="units"
                     ><a href="#" class="active change-units" id="change-units-c"
                       >°C</a
+                    >&nbsp;|&nbsp;<a
+                      href="#"
+                      class="change-units"
+                      id="change-units-f"
+                      >°F</a
+                    >&nbsp;|&nbsp;<a
+                      href="#"
+                      class="change-units"
+                      id="change-units-k"
+                      >K</a
                     >
-                    |
-                    <a href="#" class="change-units" id="change-units-f">°F</a>
-                    |
-                    <a href="#" class="change-units" id="change-units-k">K</a>
                   </span>
                 </div>
               </div>
@@ -70,6 +76,38 @@
                 <li>Humidity: <span id="humidity"></span>%</li>
                 <li>Wind: NNW <span id="windspeed"></span> m/s</li>
               </ul>
+            </div>
+          </div>
+          <div class="weather-forecast">
+            <div class="row">
+              <div class="col-2">
+                <div class="weather-forecast-date" id="forecast-date-0">
+                  Thu
+                </div>
+                <img
+                  src="http://openweathermap.org/img/wn/01n@2x.png"
+                  alt="sunny"
+                  id="forecast-icon-0"
+                  width="30px"
+                />
+                <div class="weather-forecast-temperatures">
+                  <span
+                    class="weather-forecast-temperature-maximum"
+                    id="forecast-maximum-0"
+                    >25°</span
+                  >
+                  <span
+                    class="weather-forecast-temperature-minimum"
+                    id="forecast-minimum-0"
+                    >10°</span
+                  >
+                </div>
+              </div>
+              <div class="col-2">B</div>
+              <div class="col-2">C</div>
+              <div class="col-2">D</div>
+              <div class="col-2">E</div>
+              <div class="col-2">F</div>
             </div>
           </div>
         </div>
