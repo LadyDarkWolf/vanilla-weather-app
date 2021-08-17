@@ -67,3 +67,19 @@ li::first-letter {
 .weather-temperature .active:hover {
   text-decoration: none;
 }
+
+.weather-forecast {
+  margin-top: 10px;
+  text-align: center;
+  color: rgb(135, 135, 135);
+  font-weight: 400;
+}
+.weather-forecast-date {
+  font-size: 16px;
+}
+.weather-forecast-temperatures {
+  font-size: 14px;
+}
+.weather-forecast-temperature-maximum {
+  font-weight: 600;
+}
